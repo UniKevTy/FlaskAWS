@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajout de données</title>
+    <link rel="stylesheet" href="static\style_addData.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="conteneur">
+            <div class="colonne">
+                <a href="#" class="rubrique" id="ajout-eleve-link">Ajout Élève</a>
+            </div>
+            <div class="colonne">
+                <a href="#" class="rubrique" id="ajout-note-link">Ajout Note</a>
+            </div>
+        </div>
+    
+        <!-- Modale pour Ajout Élève -->
+        <div id="ajout-eleve-modal" class="modal_eleve">
+            <div class="modal-content">
+                <span class="close" id="close-eleve-modal">&times;</span>
+                <form method="POST" action="/addData">
+                    <input type="hidden" name="formulaire" value="eleve"> <!-- Champ caché pour indiquer le formulaire -->
+                    <label for="nom">Nom:</label>
+                    <input type="text" id="nom" name="nom" required><br><br>
+                    <label for="prenom">Prénom:</label>
+                    <input type="text" id="prenom" name="prenom" required><br><br>
+                    <label for="idClasse">Classe:</label>
+                    <input type="text" id="idClasse" name="idClasse" required><br><br>
+                    <label for="dateNaissance">Date de naissance:</label>
+                    <input type="date" id="dateNaissance" name="dateNaissance" required><br><br>
+                    <input type="submit" value="Ajouter l'élève">
+                </form>
+            </div>
+        </div>
+
+        <!-- Modale pour Ajout Note -->
+        <div id="ajout-note-modal" class="modal_note">
+            <div class="modal-content">
+                <span class="close" id="close-note-modal">&times;</span>
+                <form method="POST" action="/addData">
+                    <input type="hidden" name="formulaire" value="note"> <!-- Champ caché pour indiquer le formulaire -->
+                    <label for="idEleve">Identifiant:</label>
+                    <input type="text" id="idEleve" name="idEleve" required><br><br>
+                    <label for="idMatiere">Matière:</label>
+                    <input type="text" id="idMatiere" name="idMatiere" required><br><br>
+                    <label for="valeur">Note:</label>
+                    <input type="number" name="valeur" id="valeur" min="0" step="0.01" pattern="^\d+(\.\d{1,2})?$"><br><br>
+                    <input type="submit" value="Ajouter la note">
+                </form>
+            </div>
+        </div>
+
+        <script src="static\script.js"></script>
+
+    </nav>
+</body>
+<header>
+
+</header>
+</html>
